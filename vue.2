@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	
+	
+	<div id="app">
+		<!-- 默认情况下，组件标签对中的内容在组件被渲染时，会被丢弃掉 -->
+		
+		<!-- 如果组件的模板中添加插槽，那么组件标签对内容就会代替插槽标签 -->
+		<com>
+			<strong>小明</strong>
+			<span>110</span>
+		</com>
+	</div>
+	
+	<script type="text/html" id="com">
+		
+		<div>
+			<h1>我是com1组件</h1>
+			<p>
+				<!-- slot 插槽标签；效果就是把组件使用时的标签对中的内容显示在这个插槽位置。slot标签会被替代掉 -->
+				<slot></slot>
+			</p>
+			<p>
+				<slot></slot>
+			</p>
+		</div>
+		
+	</script>
+	<script src="js/vue.js"></script>
+	<script>
+		
+		let com = {
+			template:"#com"
+		}
+		
+		new Vue({
+			el:"#app",
+			data:{
+				
+			},
+			components:{
+				com
+			}
+		})
+		
+	</script>
+</body>
+</html>
